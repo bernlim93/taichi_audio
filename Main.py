@@ -13,7 +13,7 @@ def print_list():
         tts = gTTS(text=moves[i], lang='zh')
         tts.save("temp.wav")
         sound += AudioSegment.from_mp3("temp.wav")
-        sound += AudioSegment.silent(duration=int(times[i]))
+        sound += AudioSegment.silent(duration=int(times[i])*1000)
 
     sound.export("output.wav", format="wav")
 
