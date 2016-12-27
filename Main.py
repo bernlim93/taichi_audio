@@ -7,6 +7,15 @@ filename = "moves.txt"
 
 
 def create_sound():
+    """
+    Using the moves and times global arrays,
+    call the Google TTS library to create sound segments
+    for each move.
+    Concatenate each new move's sound to the current sound
+    chunk.
+    Finally, export the sound as a WAV file.
+    :return:
+    """
     sound = AudioSegment.silent(duration=0)
     for i in range(len(moves)):
         print moves[i], ':', times[i]
@@ -19,6 +28,11 @@ def create_sound():
 
 
 def create_list():
+    """
+    Iterate through the input file and add moves and times
+    to the global arrays.
+    :return:
+    """
     global moves, times
     moves_file = open(filename)
     for movetime in moves_file:
