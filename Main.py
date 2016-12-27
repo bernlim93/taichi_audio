@@ -18,7 +18,7 @@ def create_sound():
     sound.export("output.wav", format="wav")
 
 
-def main():
+def create_list():
     global moves, times
     moves_file = open(filename)
     for movetime in moves_file:
@@ -35,6 +35,9 @@ def main():
         moves.append(move)
         times.append(time)
 
+
+def main():
+    create_list()
     create_sound()
 
 
