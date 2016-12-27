@@ -6,13 +6,13 @@ times = []
 filename = "moves.txt"
 
 
-def print_list():
+def create_sound():
     sound = AudioSegment.silent(duration=0)
     for i in range(len(moves)):
         print moves[i], ':', times[i]
         tts = gTTS(text=moves[i], lang='zh')
         tts.save("temp.wav")
-        sound += AudioSegment.from_mp3("temp.wav")
+        sound += AudioSegment.from_wav("temp.wav")
         sound += AudioSegment.silent(duration=int(times[i])*1000)
 
     sound.export("output.wav", format="wav")
@@ -35,7 +35,7 @@ def main():
         moves.append(move)
         times.append(time)
 
-    print_list()
+    create_sound()
 
 
 if __name__ == '__main__':
